@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RemakeStudio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/favicon.png"/>
+</head>
+<body>
+    <div class="cursor"></div>
+    <header class="header" id="header">
+        <div class="header__container">
+            <a href="index.html" class="logo">
+                <img src="images/logofull.svg" alt="RemakeStudio" class="logo__image">
+            </a>
+
+            <nav class="nav nav--desktop">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link nav__link--active">Главная</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#cards-section" class="nav__link">О нас</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="https://vk.com/@remake_mc-portfolio" target="_blank" class="nav__link">Портфолио</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="https://vk.com/uslugi-226537510?screen=group" target="_blank" class="nav__link">Услуги</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <a href="https://vk.com/write-226537510" target="_blank" class="button button--header">Начать</a>
+
+            <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Открыть меню">
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+                <span class="mobile-menu-toggle__line"></span>
+            </button>
+
+            <nav class="nav nav--mobile" id="mobileNav">
+                <ul class="nav__list nav__list--mobile">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Главная</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#cards-section" class="nav__link">О нас</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="https://vk.com/@remake_mc-portfolio" target="_blank" class="nav__link">Портфолио</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="https://vk.com/uslugi-226537510?screen=group" target="_blank" class="nav__link">Услуги</a>
+                    </li>
+                </ul>
+                <a href="https://vk.com/write-226537510" target="_blank" class="button button--mobile">Начать</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="hero__glow"></div>
+        <img src="images/ray-1.png" alt="" class="hero__ray-top">
+
+        <section class="hero">
+            <div class="hero__background">
+
+                <div class="hero__pattern">
+                    <img src="images/frames.png" alt="" class="hero__pattern-image">
+                </div>
+
+                <div class="hero__rays">
+                    <img src="images/ray-2.png" alt="" class="hero__ray hero__ray--2">
+                    <img src="images/ray-3.png" alt="" class="hero__ray hero__ray--3">
+                    <img src="images/ray-4.png" alt="" class="hero__ray hero__ray--4">
+                    <img src="images/ray-5.png" alt="" class="hero__ray hero__ray--5">
+                    <img src="images/ray-6.png" alt="" class="hero__ray hero__ray--6">
+                    <img src="images/ray-7.png" alt="" class="hero__ray hero__ray--7">
+                    <img src="images/ray-8.png" alt="" class="hero__ray hero__ray--8">
+                    <img src="images/ray-9.png" alt="" class="hero__ray hero__ray--9">
+                </div>
+
+                <div class="hero__particles">
+                    <div class="hero__particle hero__particle--1"></div>
+                    <div class="hero__particle hero__particle--2"></div>
+                    <div class="hero__particle hero__particle--3"></div>
+                    <div class="hero__particle hero__particle--4"></div>
+                    <div class="hero__particle hero__particle--5"></div>
+                    <div class="hero__particle hero__particle--6"></div>
+                    <div class="hero__particle hero__particle--7"></div>
+                    <div class="hero__particle hero__particle--8"></div>
+                    <div class="hero__particle hero__particle--9"></div>
+                    <div class="hero__particle hero__particle--10"></div>
+                    <div class="hero__particle hero__particle--11"></div>
+                    <div class="hero__particle hero__particle--12"></div>
+                    <div class="hero__particle hero__particle--13"></div>
+                    <div class="hero__particle hero__particle--14"></div>
+                    <div class="hero__particle hero__particle--15"></div>
+                    <div class="hero__particle hero__particle--16"></div>
+                    <div class="hero__particle hero__particle--17"></div>
+                    <div class="hero__particle hero__particle--18"></div>
+                    <div class="hero__particle hero__particle--19"></div>
+                    <div class="hero__particle hero__particle--20"></div>
+                    <div class="hero__particle hero__particle--21"></div>
+                    <div class="hero__particle hero__particle--22"></div>
+                    <div class="hero__particle hero__particle--23"></div>
+                    <div class="hero__particle hero__particle--24"></div>
+                </div>
+            </div>
+
+            <div class="hero__container">
+                <div class="hero__stats">
+                    <div class="stats">
+                        <img src="images/projects-avatars.png" alt="Клиенты" class="stats__avatars">
+                        <span class="stats__text">Создано 480+ успешных проектов</span>
+                    </div>
+                </div>
+
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        Воплощаем идеи в проект,<br>
+                        готовый к запуску
+                    </h1>
+                    
+                    <p class="hero__subtitle">
+                        Создание проектов под ключ с вниманием к каждой детали.<br>
+                        Мы запускаем решения, которые приносят результат.
+                    </p>
+                    
+                    <div id="cards-section" class="hero__buttons">
+                        <a href="https://vk.com/write-226537510" target="_blank" class="button button--primary">Обсудить идею</a>
+                        <a href="#cards-section" class="button button--secondary">
+                            Подробнее 
+                            <span class="button__icon">⤵</span>
+                        </a>
+                    </div>
+                </div>
+
+                <section class="features">
+                    <div class="features__container">
+                        <div class="features__grid">
+                            
+                            <article class="feature-card feature-card--operations">
+                                <div class="feature-card__image--operations">
+                                    <img src="images/lightning.svg">
+                                </div>
+                                <div class="feature-card__content">
+                                    <h3 class="feature-card__title--operations">Оперативная работа</h3>
+                                    <p class="feature-card__text--operations">
+                                        Наша команда быстро реагирует на любые изменения и запросы. Мы ценим ваше время, поэтому незамедлительно приступаем к работе после согласования и всегда держим вас в курсе текущего прогресса. Все задачи выполняются строго в срок — без задержек и простоев.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article class="feature-card feature-card--reports">
+                                <div class="feature-card__image--reports">
+                                    <img src="images/chart.svg">
+                                </div>
+                                <div class="feature-card__content">
+                                    <h3 class="feature-card__title--reports">Ежедневная отчётность</h3>
+                                    <p class="feature-card__text--reports">
+                                        Наша команда ежедневно предоставляет заказчику отчёт о проделанной работе. В дополнение к этому мы обеспечиваем круглосуточную поддержку.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article class="feature-card feature-card--multi">
+                                <div class="feature-card__image--multi">
+                                    <img src="images/multi.svg">
+                                </div>
+                                <div class="feature-card__content">
+                                    <h3 class="feature-card__title--multi">Многопрофильность</h3>
+                                    <p class="feature-card__text--multi">
+                                        RemakeStudio охватывает все этапы создания проекта — от дизайна до программной реализации и полноценного запуска проекта.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article class="feature-card feature-card--recommendations">
+                                <div class="testimonials-slider">
+                                    <div class="testimonials-track" id="testimonialsTrack">
+                                        <div class="testimonial-slide active">
+                                            <img src="images/client1.svg" alt="Отзыв 1" class="testimonial-image">
+                                        </div>
+                                        <div class="testimonial-slide">
+                                            <img src="images/client2.svg" alt="Отзыв 2" class="testimonial-image">
+                                        </div>
+                                        <div class="testimonial-slide">
+                                            <img src="images/client3.svg" alt="Отзыв 3" class="testimonial-image">
+                                        </div>
+                                        <div class="testimonial-slide">
+                                            <img src="images/client4.svg" alt="Отзыв 4" class="testimonial-image">
+                                        </div>
+                                        <div class="testimonial-slide">
+                                            <img src="images/client5.svg" alt="Отзыв 5" class="testimonial-image">
+                                        </div>
+                                        <div class="testimonial-slide">
+                                            <img src="images/client6.svg" alt="Отзыв 6" class="testimonial-image">
+                                        </div>
+                                        <div class="testimonial-slide">
+                                            <img src="images/client7.svg" alt="Отзыв 7" class="testimonial-image">
+                                        </div>
+                                        <div class="testimonial-slide">
+                                            <img src="images/client8.svg" alt="Отзыв 8" class="testimonial-image">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="testimonials-dots">
+                                        <span class="testimonial-dot active" data-slide="0"></span>
+                                        <span class="testimonial-dot" data-slide="1"></span>
+                                        <span class="testimonial-dot" data-slide="2"></span>
+                                        <span class="testimonial-dot" data-slide="3"></span>
+                                        <span class="testimonial-dot" data-slide="4"></span>
+                                        <span class="testimonial-dot" data-slide="5"></span>
+                                        <span class="testimonial-dot" data-slide="6"></span>
+                                        <span class="testimonial-dot" data-slide="7"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="testimonials-content">
+                                    <h3 class="feature-card__title--recommendations">Нас рекомендуют</h3>
+                                    <p class="feature-card__text--recommendations">
+                                        Мы ценим вашу обратную связь. Ваши отзывы помогают нам расти, и мы открыто делимся ими, чтобы вы были уверены в нашем качестве.
+                                    </p>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+                </section>
+
+                <div class="hero__about">
+                    <div class="about-card">
+                        <img src="images/loupe.svg" alt="" class="about-card__icon">
+                        <span class="about-card__text">Суть работы</span>
+                    </div>
+                    <p class="about-card__description">
+                        Суть нашей работы в трёх принципах:<br>
+                        профессионализм, внимание<br>
+                        и глубокое понимание потребностей.
+                    </p>
+                </div>
+
+                <section class="faq">
+                    <div class="faq__container">
+                        <div class="faq__content">
+                            <div class="faq__header">
+                                <div class="faq__badge">
+                                    <img src="images/question.svg" class="faq__badge-icon">
+                                    <span class="faq__badge-text">FAQ</span>
+                                </div>
+                                
+                                <h2 class="faq__title">
+                                    <span class="faq__title-main">Часто</span><br>
+                                    <span class="faq__title-gradient">Задаваемые вопросы</span>
+                                </h2>
+                                
+                                <p class="faq__subtitle">
+                                    Возник вопрос? Ответы на самые популярные вопросы вы найдёте в данном разделе FAQ.
+                                </p>
+                            </div>
+                            
+                            <div class="faq__accordion">
+                                <div class="faq__item" data-faq="0">
+                                    <div class="faq__question">
+                                        <span class="faq__question-text">Что мне нужно для начала работы с вами?</span>
+                                        <button class="faq__toggle" aria-expanded="false">
+                                            <span class="faq__toggle-icon"></span>
+                                        </button>
+                                    </div>
+                                    <div class="faq__answer">
+                                        <div class="faq__answer-content">
+                                            <p>Для начала работы нам потребуется техническое задание или описание вашей идеи. Мы проведем консультацию, обсудим детали проекта и предложим оптимальное решение.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="faq__item" data-faq="1">
+                                    <div class="faq__question">
+                                        <span class="faq__question-text">Сколько времени занимает разработка проекта?</span>
+                                        <button class="faq__toggle" aria-expanded="false">
+                                            <span class="faq__toggle-icon"></span>
+                                        </button>
+                                    </div>
+                                    <div class="faq__answer">
+                                        <div class="faq__answer-content">
+                                            <p>Время разработки зависит от сложности проекта. Простые сайты — 1-2 недели, сложные веб-приложения — от 1 до 3 месяцев. Точные сроки обсуждаются индивидуально.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="faq__item" data-faq="2">
+                                    <div class="faq__question">
+                                        <span class="faq__question-text">Предоставляете ли вы техническую поддержку?</span>
+                                        <button class="faq__toggle" aria-expanded="false">
+                                            <span class="faq__toggle-icon"></span>
+                                        </button>
+                                    </div>
+                                    <div class="faq__answer">
+                                        <div class="faq__answer-content">
+                                            <p>Да, мы предоставляем техническую поддержку и сопровождение проектов. Включает обновления, исправление ошибок и консультации по развитию проекта.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="faq__item" data-faq="3">
+                                    <div class="faq__question">
+                                        <span class="faq__question-text">Какова стоимость ваших услуг?</span>
+                                        <button class="faq__toggle" aria-expanded="false">
+                                            <span class="faq__toggle-icon"></span>
+                                        </button>
+                                    </div>
+                                    <div class="faq__answer">
+                                        <div class="faq__answer-content">
+                                            <p>Стоимость рассчитывается индивидуально в зависимости от сложности и объема работ. Обратитесь к нам для получения персонального предложения.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="faq__item" data-faq="4">
+                                    <div class="faq__question">
+                                        <span class="faq__question-text">Работаете ли вы с международными клиентами?</span>
+                                        <button class="faq__toggle" aria-expanded="false">
+                                            <span class="faq__toggle-icon"></span>
+                                        </button>
+                                    </div>
+                                    <div class="faq__answer">
+                                        <div class="faq__answer-content">
+                                            <p>Да, мы работаем с клиентами по всему миру. Используем современные инструменты для удаленной работы и поддерживаем связь в удобное для вас время.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="faq__item" data-faq="5">
+                                    <div class="faq__question">
+                                        <span class="faq__question-text">Можете ли вы доработать существующий проект?</span>
+                                        <button class="faq__toggle" aria-expanded="false">
+                                            <span class="faq__toggle-icon"></span>
+                                        </button>
+                                    </div>
+                                    <div class="faq__answer">
+                                        <div class="faq__answer-content">
+                                            <p>Конечно! Мы можем доработать, оптимизировать или полностью переделать существующий проект. Проводим анализ текущего состояния и предлагаем план улучшений.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="cta">
+                    <div class="cta__container">
+                        <div class="cta__background">
+                            <div class="cta__pattern">
+                                <img src="images/dots.png" class="cta__pattern-image">
+                            </div>
+
+                            <div class="cta__glow"></div>
+                        </div>
+
+                        <div class="cta__content">
+                            <div class="cta__badge">
+                                <img src="images/cta.svg" class="cta__badge-icon">
+                                
+                                <span class="cta__badge-text">Станьте частью нас</span>
+                            </div>
+
+                            <h2 class="cta__title">
+                                Запускаем ваш бизнес<br>
+                                в цифровую эру.
+                            </h2>
+
+                            <p class="cta__subtitle">
+                                Готовы к переменам? Ваша идея — это только начало. Мы — ваш надёжный партнёр, который создаёт продуманные и инновационные решения, способные вывести ваш бренд на новый уровень.
+                            </p>
+
+                            <a href="#" class="button button--primary">Обсудить идею</a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </section>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__top">
+                <div class="footer__logos">
+                    <a href="index.html" class="footer__logo">
+                        <img src="images/logofull.svg">
+                    </a>
+                    <a href="https://vk.com/remake_mc" target="_blank" class="footer__social">
+                        <img src="images/vk.svg">
+                    </a>
+                </div>
+            </div>
+
+            <nav class="footer__nav">
+                <ul class="footer__nav-list">
+                    <li class="footer__nav-item">
+                        <a href="index.html" class="footer__nav-link">Главная</a>
+                    </li>
+                    <li class="footer__nav-item">
+                        <a href="#cards-section" class="footer__nav-link">О нас</a>
+                    </li>
+                    <li class="footer__nav-item">
+                        <a href="https://vk.com/@remake_mc-portfolio" target="_blank" class="footer__nav-link">Портфолио</a>
+                    </li>
+                    <li class="footer__nav-item">
+                        <a href="https://vk.com/uslugi-226537510?screen=group" target="_blank" class="footer__nav-link">Услуги</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="footer__divider"></div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2024 - 2025 RemakeStudio</p>
+                <p class="footer__email">remakestudiomc@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="footer__glow"></div>
+    </footer>
+
+    </main>
+
+    <div class="bottom-blur-effect"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js" integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco=" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
