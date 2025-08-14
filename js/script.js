@@ -9,9 +9,7 @@ class RemakeStudio {
 
     bindEvents() {
         this.initMobileMenu();
-        
         this.handleResize();
-        
         this.handleKeyboard();
     }
 
@@ -21,11 +19,13 @@ class RemakeStudio {
         const navLinks = document.querySelectorAll('.nav--mobile .nav__link');
 
         if (!mobileToggle || !mobileNav) {
-            console.warn('Mobile menu elements not found');
             return;
         }
 
-        mobileToggle.addEventListener('click', (e) => {
+        mobileToggle.replaceWith(mobileToggle.cloneNode(true));
+        const newMobileToggle = document.getElementById('mobileToggle');
+
+        newMobileToggle.addEventListener('click', (e) => {
             e.preventDefault();
             this.toggleMobileMenu();
         });
@@ -39,7 +39,7 @@ class RemakeStudio {
         });
 
         document.addEventListener('click', (e) => {
-            if (!mobileToggle.contains(e.target) && 
+            if (!newMobileToggle.contains(e.target) && 
                 !mobileNav.contains(e.target) && 
                 mobileNav.classList.contains('nav--open')) {
                 this.closeMobileMenu();
@@ -49,7 +49,7 @@ class RemakeStudio {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && mobileNav.classList.contains('nav--open')) {
                 this.closeMobileMenu();
-                mobileToggle.focus();
+                newMobileToggle.focus();
             }
         });
     }
@@ -236,90 +236,41 @@ function initHeaderScroll() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    try {
-        new RemakeStudio();
-        initTestimonialsSlider();
-        initFaqAccordion();
-        initHeaderScroll();
-    } catch (error) {
-        console.error('Failed to initialize scripts:', error);
-    }
-});
-
-
-
-
-
-
-
-
-
-// ПОЛНЫЙ ДОПОЛНИТЕЛЬНЫЙ JAVASCRIPT (ИСПРАВЛЕННАЯ ВЕРСИЯ) - добавить в конец script.js
-
-// Анимации появления при скролле
-document.addEventListener('DOMContentLoaded', function() {
-    // Настройка анимаций появления при скролле
-    initScrollAnimations();
-    
-    // Магнитные эффекты для кнопок (только для десктопа)
-    initMagneticEffects();
-    
-    // Оптимизации производительности
-    initPerformanceOptimizations();
-    
-    // Запускаем мониторинг FPS
-    if (window.requestAnimationFrame) {
-        setupFrameRateOptimization();
-    }
-});
-
 function initScrollAnimations() {
-    // Проверяем поддержку IntersectionObserver
     if (!('IntersectionObserver' in window)) {
-        // Если не поддерживается, просто показываем все элементы
         showAllElements();
         return;
     }
 
-    // Настройки для наблюдателя
     const observerOptions = {
-        threshold: 0.1, // Элемент считается видимым при 10% видимости
-        rootMargin: '0px 0px -50px 0px' // Триггер чуть раньше полного появления
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     };
 
-    // Создаем наблюдателя
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Добавляем класс для анимации появления
                 entry.target.classList.add('in-view');
-                
-                // Перестаем наблюдать за этим элементом
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Добавляем классы анимаций к секциям и настраиваем наблюдение
     setupSectionAnimations(observer);
 }
 
 function setupSectionAnimations(observer) {
-    // About секция (hero__about) - ИСПРАВЛЕНО: только при скролле
     const aboutSection = document.querySelector('.hero__about');
     if (aboutSection) {
         aboutSection.classList.add('fade-in-up');
         observer.observe(aboutSection);
     }
-    
-    // FAQ секция
+
     const faqSection = document.querySelector('.faq');
     if (faqSection) {
         faqSection.classList.add('fade-in-up');
         observer.observe(faqSection);
         
-        // Анимируем элементы FAQ с задержкой
         const faqItems = faqSection.querySelectorAll('.faq__item');
         faqItems.forEach((item, index) => {
             item.classList.add('fade-in-up');
@@ -328,26 +279,15 @@ function setupSectionAnimations(observer) {
         });
     }
 
-    // CTA секция
     const ctaSection = document.querySelector('.cta');
     if (ctaSection) {
         ctaSection.classList.add('fade-in-up');
         observer.observe(ctaSection);
     }
-
-    // Footer - УБИРАЕМ анимацию появления
-    // const footer = document.querySelector('.footer');
-    // if (footer) {
-    //     footer.classList.add('fade-in-up');
-    //     observer.observe(footer);
-    // }
-
-    // Анимируем элементы внутри секций с разными направлениями
     animateInnerElements(observer);
 }
 
 function animateInnerElements(observer) {
-    // About card - анимация только при скролле
     const aboutCard = document.querySelector('.about-card');
     const aboutDescription = document.querySelector('.about-card__description');
     
@@ -363,7 +303,6 @@ function animateInnerElements(observer) {
         observer.observe(aboutDescription);
     }
 
-    // FAQ заголовок слева, аккордеон справа
     const faqHeader = document.querySelector('.faq__header');
     const faqAccordion = document.querySelector('.faq__accordion');
     
@@ -377,40 +316,15 @@ function animateInnerElements(observer) {
         observer.observe(faqAccordion);
     }
 
-    // CTA контент
     const ctaContent = document.querySelector('.cta__content');
     if (ctaContent) {
         ctaContent.classList.add('fade-in-up');
         ctaContent.style.transitionDelay = '0.2s';
         observer.observe(ctaContent);
     }
-
-    // Footer элементы - УБИРАЕМ анимации появления для footer
-    // const footerTop = document.querySelector('.footer__top');
-    // const footerNav = document.querySelector('.footer__nav');
-    // const footerBottom = document.querySelector('.footer__bottom');
-    
-    // if (footerTop) {
-    //     footerTop.classList.add('fade-in-up');
-    //     footerTop.style.transitionDelay = '0.1s';
-    //     observer.observe(footerTop);
-    // }
-    
-    // if (footerNav) {
-    //     footerNav.classList.add('fade-in-up');
-    //     footerNav.style.transitionDelay = '0.2s';
-    //     observer.observe(footerNav);
-    // }
-    
-    // if (footerBottom) {
-    //     footerBottom.classList.add('fade-in-up');
-    //     footerBottom.style.transitionDelay = '0.3s';
-    //     observer.observe(footerBottom);
-    // }
 }
 
 function showAllElements() {
-    // Для браузеров без поддержки IntersectionObserver
     const elementsToShow = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .fade-in');
     elementsToShow.forEach(element => {
         element.style.opacity = '1';
@@ -419,7 +333,6 @@ function showAllElements() {
 }
 
 function initMagneticEffects() {
-    // Магнитные эффекты для кнопок (только для десктопа)
     if (window.innerWidth > 768 && !('ontouchstart' in window)) {
         const magneticElements = document.querySelectorAll('.button--primary, .button--secondary');
         
@@ -443,11 +356,9 @@ function initMagneticEffects() {
 }
 
 function initPerformanceOptimizations() {
-    // Отключение анимаций на слабых устройствах
     if (isLowEndDevice()) {
         document.documentElement.classList.add('reduced-motion');
         
-        // Ускоряем анимации на слабых устройствах
         const style = document.createElement('style');
         style.textContent = `
             .fade-in-up, .fade-in-left, .fade-in-right, .fade-in {
@@ -462,15 +373,12 @@ function initPerformanceOptimizations() {
         document.head.appendChild(style);
     }
 
-    // Оптимизация для touch устройств
     if ('ontouchstart' in window) {
         document.documentElement.classList.add('touch-device');
     }
     
-    // Дополнительная оптимизация для очень медленных соединений
     if (navigator.connection && 
         (navigator.connection.effectiveType === 'slow-2g' || navigator.connection.effectiveType === '2g')) {
-        // Отключаем все анимации появления
         const style = document.createElement('style');
         style.textContent = `
             .fade-in-up, .fade-in-left, .fade-in-right, .fade-in,
@@ -499,7 +407,6 @@ function isLowEndDevice() {
     );
 }
 
-// Дополнительная оптимизация FPS
 function setupFrameRateOptimization() {
     let lastTime = 0;
     let frames = 0;
@@ -512,11 +419,9 @@ function setupFrameRateOptimization() {
             frames = 0;
             lastTime = currentTime;
             
-            // Если FPS низкий, упрощаем анимации
             if (fps < 30) {
                 document.documentElement.classList.add('low-fps');
                 
-                // Добавляем стили для низкого FPS
                 if (!document.getElementById('low-fps-styles')) {
                     const style = document.createElement('style');
                     style.id = 'low-fps-styles';
@@ -547,7 +452,6 @@ function setupFrameRateOptimization() {
     }
 }
 
-// Дополнительные utility функции
 function throttle(func, limit) {
     let inThrottle;
     return function() {
@@ -573,13 +477,10 @@ function debounce(func, wait) {
     };
 }
 
-// Дополнительная оптимизация скролла
 function initSmoothScrollOptimization() {
-    // Оптимизируем скролл события
     let ticking = false;
     
     function updateScrollEffects() {
-        // Здесь можно добавить дополнительные эффекты при скролле
         ticking = false;
     }
     
@@ -590,27 +491,21 @@ function initSmoothScrollOptimization() {
         }
     }
     
-    // Throttled scroll handler
     window.addEventListener('scroll', requestTick, { passive: true });
 }
 
-// Инициализируем оптимизацию скролла
 if (window.addEventListener) {
     initSmoothScrollOptimization();
 }
 
-// Обработка видимости страницы для оптимизации
 document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
-        // Страница скрыта - можно приостановить тяжелые анимации
         document.documentElement.classList.add('page-hidden');
     } else {
-        // Страница видима - возобновляем анимации
         document.documentElement.classList.remove('page-hidden');
     }
 });
 
-// CSS для оптимизации скрытой страницы
 const visibilityStyles = document.createElement('style');
 visibilityStyles.textContent = `
     .page-hidden .hero__particle,
@@ -621,7 +516,6 @@ visibilityStyles.textContent = `
 `;
 document.head.appendChild(visibilityStyles);
 
-// Prefetch критичных ресурсов
 function prefetchResources() {
     const criticalResources = [
         'images/logofull.svg',
@@ -638,24 +532,14 @@ function prefetchResources() {
     });
 }
 
-// Запускаем prefetch после загрузки
 if (document.readyState === 'complete') {
     prefetchResources();
 } else {
     window.addEventListener('load', prefetchResources);
 }
 
-console.log('RemakeStudio animations initialized successfully! 🚀');
-
-
-
-
-
-
-
-
 if (window.matchMedia('(pointer:fine)').matches) {
-    document.body.style.cursor = "none"; // Скрываем стандартный курсор
+    document.body.style.cursor = "none";
 
     const cursor = document.createElement('div');
     cursor.classList.add('cursor');
@@ -673,4 +557,221 @@ if (window.matchMedia('(pointer:fine)').matches) {
     document.addEventListener('mouseup', () => {
       cursor.classList.remove('click');
     });
-  }
+}
+
+function initEarlyMobileMenu() {
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (!mobileToggle || !mobileNav) {
+        return;
+    }
+
+    mobileToggle.addEventListener('click', function tempClickHandler(e) {
+        e.preventDefault();
+        
+        const isOpen = mobileNav.classList.contains('nav--open');
+        
+        if (isOpen) {
+            mobileToggle.classList.remove('mobile-menu-toggle--active');
+            mobileNav.classList.remove('nav--open');
+            document.body.classList.remove('no-scroll');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+        } else {
+            mobileToggle.classList.add('mobile-menu-toggle--active');
+            mobileNav.classList.add('nav--open');
+            document.body.classList.add('no-scroll');
+            mobileToggle.setAttribute('aria-expanded', 'true');
+        }
+    });
+}
+
+class LoadingManager {
+    constructor() {
+        this.loadingScreen = document.getElementById('loadingScreen');
+        this.progressBar = document.getElementById('progressBar');
+        this.loadingPercentage = document.getElementById('loadingPercentage');
+        this.currentProgress = 0;
+        this.targetProgress = 0;
+        this.isLoading = true;
+        
+        this.init();
+    }
+
+    init() {
+        document.body.classList.add('loading');
+        this.simulateLoading();
+        this.checkResourcesLoading();
+    }
+
+    simulateLoading() {
+        const loadingSteps = [
+            { progress: 20, duration: 300, text: "Загружаем ресурсы..." },
+            { progress: 40, duration: 500, text: "Инициализируем анимации..." },
+            { progress: 60, duration: 400, text: "Подготавливаем интерфейс..." },
+            { progress: 80, duration: 300, text: "Финальная настройка..." },
+            { progress: 100, duration: 200, text: "Готово!" }
+        ];
+
+        let currentStep = 0;
+        
+        const executeStep = () => {
+            if (currentStep < loadingSteps.length) {
+                const step = loadingSteps[currentStep];
+                this.updateProgress(step.progress);
+                
+                setTimeout(() => {
+                    currentStep++;
+                    executeStep();
+                }, step.duration);
+            } else {
+                this.finalizeLoading();
+            }
+        };
+
+        executeStep();
+    }
+
+    checkResourcesLoading() {
+        const criticalImages = [
+            'images/logofull.svg',
+            'images/frames.png',
+            'images/projects-avatars.png',
+            'images/ray-1.png',
+            'images/lightning.svg',
+            'images/chart.svg',
+            'images/multi.svg'
+        ];
+
+        let loadedCount = 0;
+        const totalImages = criticalImages.length;
+
+        criticalImages.forEach(src => {
+            const img = new Image();
+            img.onload = () => {
+                loadedCount++;
+                const imageProgress = (loadedCount / totalImages) * 30;
+                this.targetProgress = Math.max(this.targetProgress, imageProgress);
+            };
+            img.onerror = () => {
+                loadedCount++;
+            };
+            img.src = src;
+        });
+    }
+
+    updateProgress(progress) {
+        this.targetProgress = Math.max(this.targetProgress, progress);
+        
+        const animate = () => {
+            if (this.currentProgress < this.targetProgress) {
+                this.currentProgress += (this.targetProgress - this.currentProgress) * 0.1;
+                
+                if (this.targetProgress - this.currentProgress < 0.1) {
+                    this.currentProgress = this.targetProgress;
+                }
+                
+                this.progressBar.style.width = `${this.currentProgress}%`;
+                this.loadingPercentage.textContent = `${Math.round(this.currentProgress)}%`;
+                
+                if (this.currentProgress < this.targetProgress) {
+                    requestAnimationFrame(animate);
+                }
+            }
+        };
+        
+        animate();
+    }
+
+    finalizeLoading() {
+        this.updateProgress(100);
+        
+        setTimeout(() => {
+            this.hideLoadingScreen();
+        }, 800);
+    }
+
+    hideLoadingScreen() {
+        this.loadingScreen.classList.add('hidden');
+        document.body.classList.remove('loading');
+        document.body.classList.add('loaded');
+        
+        setTimeout(() => {
+            this.initMainScripts();
+            
+            setTimeout(() => {
+                if (this.loadingScreen && this.loadingScreen.parentNode) {
+                    this.loadingScreen.remove();
+                }
+            }, 800);
+        }, 100);
+    }
+
+    initMainScripts() {
+        
+        try {
+            if (typeof RemakeStudio !== 'undefined') {
+                new RemakeStudio();
+            }
+            
+            if (typeof initTestimonialsSlider !== 'undefined') {
+                initTestimonialsSlider();
+            }
+            
+            if (typeof initFaqAccordion !== 'undefined') {
+                initFaqAccordion();
+            }
+            
+            if (typeof initHeaderScroll !== 'undefined') {
+                initHeaderScroll();
+            }
+
+            setTimeout(() => {
+                if (typeof initScrollAnimations !== 'undefined') {
+                    initScrollAnimations();
+                }
+                
+                if (typeof initMagneticEffects !== 'undefined') {
+                    initMagneticEffects();
+                }
+                
+                if (typeof initPerformanceOptimizations !== 'undefined') {
+                    initPerformanceOptimizations();
+                }
+                
+                if (window.requestAnimationFrame && typeof setupFrameRateOptimization !== 'undefined') {
+                    setupFrameRateOptimization();
+                }
+            }, 500);
+
+        } catch (error) {
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initEarlyMobileMenu();
+    
+    const loadingScreen = document.getElementById('loadingScreen');
+    
+    if (loadingScreen) {
+        new LoadingManager();
+    } else {
+        try {
+            new RemakeStudio();
+            initTestimonialsSlider();
+            initFaqAccordion();
+            initHeaderScroll();
+            
+            setTimeout(() => {
+                initScrollAnimations();
+                initMagneticEffects();
+                initPerformanceOptimizations();
+                if (window.requestAnimationFrame) {
+                    setupFrameRateOptimization();
+                }
+            }, 500);
+        } catch (error) {
+        }
+    }
+});
